@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!--Er det greit jeg skrev kommentarer på Engelsk. Fordi jeg syns det er lettere å skrive på engelsk og får det mer korrekt skrive messig en på Norsk. Da jeg har skrive-->
+<!--dysleksi og merker jeg skriver bedre på engelsk. I hope that is okay-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,16 +20,17 @@
     </main>
 
     <script>
+        //Changed = on line 27 too colon cause that is correct.
         const code = {
             hx: "Efmfltbnfo 1",
             ix: "A sfuuf gfjmfof ph lpnnfoufsf lpefo wbs cbsf gåstuf efm bw pqqhbwfo. Ev tlbm phta ub gps efh ufltufo ev tlsfw j bscfjetlsbw 1, ph tlsjwf fu ozuu sfgmfltkpotopubu oa oas ev ibs hkfoopngåsu lvstfu. J efuuf sfgmfltkpotopubufu, twbs qa gåmhfoef tqåstnam:",
             qx: ["Botfs ev qsphsbnnfsjoh tpn ozuujh?", "Tfs ev gps efh bu ev wjm csvlf qsphsbnnfsjoh j ejuu wjefsf tuvejfmåq?", "Iwps npujwfsu fs ev gps a vugpstlf qsphsbnnfsjoh wjefsf fuufs lvstfu?"],
-            dx= "Mbh fo QEG bw eplvnfoufu, ph mfhh wfe caef efuuf eplvnfoufu tbnu cftwbsfmtfo gps bscfjetlsbw 1 j cftwbsfmtfo ujm efmfltbnfo 1."
+            dx: "Mbh fo QEG bw eplvnfoufu, ph mfhh wfe caef efuuf eplvnfoufu tbnu cftwbsfmtfo gps bscfjetlsbw 1 j cftwbsfmtfo ujm efmfltbnfo 1."
         }
-
+//On line 32 it missing the apostrophe. So I put a apostrophe there.
         function decode(input) {
             const alphabet = 'abcdefghijklmnopqrstuvwxyzæøå'
-            const alphabetUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ
+            const alphabetUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ'
 
             const getPreviousChar = (char, alphabet) => {
                 const index = alphabet.indexOf(char);
@@ -36,7 +38,7 @@
             };
 
             return input.split('').map(char => {
-                if (alphabetT.includes(char)) {
+                if (alphabet.includes(char)) { //Alphabet was written wrong, it was a T too much and it was big letter.
                     return getPreviousChar(char, alphabet)
                 } else if (alphabetUpper.includes(char)) {
                     return getPreviousChar(char, alphabetUpper)
@@ -44,13 +46,13 @@
                 return char
             }).join('')
         }
-
+//On line 52 so was the HTML in small letters. Changed it to big letters. In line 54 there was missing one part of thebracket behind the number two. So I put a bracket there.
         //PRINT DECODED MATERIAL
         document.getElementById("heading").innerHTML = decode(code.hx)
         document.getElementById("intro").innerHTML = decode(code.ix)
-        document.getElementById("q1").innerhtml = decode(code.qx[0])
-        document.getElementByID("q2").innerHTML = decode(code.qx[1])
-        document.getElementById("q3").innerHTML = decode(code.qx[2)
+        document.getElementById("q1").innerHTML = decode(code.qx[0])
+        document.getElementById("q2").innerHTML = decode(code.qx[1]) //In line 52 the id was incorrect, it had  a big letter D instead of a small letter D.
+        document.getElementById("q3").innerHTML = decode(code.qx[2])
         document.getElementById("delivery").innerHTML = decode(code.dx)
     </script>
 </body>
