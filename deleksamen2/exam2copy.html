@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eksamen, oppgave 2</title>
-    <link href="exam2.css" rel="stylesheet" media="all">
+    <link href="exam2copy.css" rel="stylesheet" media="all">
 </head>
 <body class="lato-regular">
     <main>
@@ -31,24 +31,41 @@
             <p>Egenkapital: Kr. <span id="equity">-</span></p>
         </section>
         <section id="todoform">
+
+            <!-- From Uiverse.io by andrew-demchenk0 --> 
+<!--comment is coming here-->
+<div id="boxyerror" class="error itsallhidden">
+    <div class="error__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none"><path fill="#393a37" d="m13 13h-2v-6h2zm0 4h-2v-2h2zm-1-15c-1.3132 0-2.61358.25866-3.82683.7612-1.21326.50255-2.31565 1.23915-3.24424 2.16773-1.87536 1.87537-2.92893 4.41891-2.92893 7.07107 0 2.6522 1.05357 5.1957 2.92893 7.0711.92859.9286 2.03098 1.6651 3.24424 2.1677 1.21325.5025 2.51363.7612 3.82683.7612 2.6522 0 5.1957-1.0536 7.0711-2.9289 1.8753-1.8754 2.9289-4.4189 2.9289-7.0711 0-1.3132-.2587-2.61358-.7612-3.82683-.5026-1.21326-1.2391-2.31565-2.1677-3.24424-.9286-.92858-2.031-1.66518-3.2443-2.16773-1.2132-.50254-2.5136-.7612-3.8268-.7612z"></path></svg></div>
+            <div class="error__title">
+            <p id="error"></p>
+
+            </div>
+    <!--<div class="error__close">
+
+    </div>-->
+</div>
+
+            
             <h2>Ny oppgave</h2>
-            <p><label for="task">Oppgavetekst:</label><br /><input type="text" id="task" /><button id="savetask">Lagre</button></p>
+            <p><label for="task">Oppgavetekst:</label><br /><input type="text" id="task" /><button id="savetask" onclick="dyntodos()">Lagre</button></p><!--IT IS HERE THE BUTTON!!!-->
         </section>
         <section id="todos">
             <h2>Oppgaver</h2>
             <!--Inn here it will go from hard codeing too dynamic coding. By taking the task laying and saved in todos.
             in the script under const todos. remeber to change your comment to something more fitting for what you did do-->
             <ul id="todolist">
+                <!--comment is coming here-->
+                <!--BRUH#todoform:after is like button style after the normal #todoform:this comment is for me -->
                 <!-- De to listeelementene skal byttes ut med utskrift av data fra programkoden i <script> -->
-                    document.getElementById("todos")<!--this comment is for me: Planning on adding button for the part of done and todo task-->
-                <li>
+                <!--<li>
                     <span class="tast-text">Les eksamensteksten</span>
-                    <span class="task-status task-status-done">Done</span>
+                    <span class="task-status task-status-done" >Done</span>
                 </li>
                 <li>
                     <span class="tast-text">Løs oppgavene i InnfProg-eksamen</span>
                     <span class="task-status task-status-todo">To do</span>
-                </li>
+                </li>-->
             </ul>
         </section>
         <footer><p>Adminpanel IPv1.0</p></footer>
@@ -97,10 +114,77 @@
             {text: "Lag funksjonalitet for å registrere nye oppgaver", status: "To do"},
             {text: "Lag funksjonalitet for å sette en eksisterende oppgave til utført ved å endre status", status: "To do"}
         ]
+        //comment is coming here
+        //this is for the to do dos too show up
+        function shuwMToDo() {
+            let ulTag = document.getElementById("todolist")
+            ulTag.innerHTML=""
+            todos.map((e,index)=>{
+                let liTag = document.createElement("li")
+                
+                let spanTag = document.createElement("span")
+                let spanTagBT = document.createElement("span")
 
-        
+
+                let spanNode = document.createTextNode(e.text)
+                spanTag.appendChild(spanNode)
+
+                let className = ["tast-text",""]
+                if(e.status==="To do") {
+                    className[1]=["task-status", "task-status-todo"]
+                    spanNode=document.createTextNode("To do")
+                    spanTagBT.onclick=function(){notodos(index)}
+
+                }
+                else {
+                    className[1]=["task-status", "task-status-done"]
+                    spanNode=document.createTextNode("Done")
+
+                }
+                spanTagBT.appendChild(spanNode)
+                spanTag.classList.add(className[0])
+                spanTagBT.classList.add(className[1][0])
+                spanTagBT.classList.add(className[1][1])
+                console.log(e)
+                liTag.appendChild(spanTag)
+                liTag.appendChild(spanTagBT)
+                ulTag.appendChild(liTag)
+            })
+        }
+        //comment is coming here
+//this is to show the to dos when the site is loading
+        shuwMToDo()
+//this is for making new to dos
+//comment is coming here
+        function dyntodos() {
+           let texytudos = document.getElementById("task")
+           if (texytudos.value !=="") { console.log(texytudos)
+            todos.push({text:texytudos.value,status:"To do"})
+            texytudos.value=""
+            shuwMToDo()
+
+            document.getElementById("error").innerHTML=""
+            document.getElementById("boxyerror").classList.toggle("itsallhidden")
+
+
+
+           }else{
+            document.getElementById("error").innerHTML="no task you scrub"
+            document.getElementById("boxyerror").classList.toggle("itsallhidden")
+
+            
+           }
+            
+            
+        }
         //CLOCK
-        
+        //commment is coming here
+        //new function to change status of the to dos
+        function notodos(index) {
+            //console.log(index)
+            todos[index].status="Done"
+            shuwMToDo()
+        }
     </script>
 </body>
 </html>
