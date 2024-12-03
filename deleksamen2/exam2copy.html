@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--REMEMBER TO PUT ALL THE LINKS YOU USED FOR SITES AND CODE AND SO ON!! AND PEOPLE YOU USED-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eksamen, oppgave 2</title>
@@ -33,7 +34,7 @@
         <section id="todoform">
 
             <!-- From Uiverse.io by andrew-demchenk0 --> 
-<!--comment is coming here-->
+<!--I added code from the Uiverse.io for the error pop up-->
 <div id="boxyerror" class="error itsallhidden">
     <div class="error__icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none"><path fill="#393a37" d="m13 13h-2v-6h2zm0 4h-2v-2h2zm-1-15c-1.3132 0-2.61358.25866-3.82683.7612-1.21326.50255-2.31565 1.23915-3.24424 2.16773-1.87536 1.87537-2.92893 4.41891-2.92893 7.07107 0 2.6522 1.05357 5.1957 2.92893 7.0711.92859.9286 2.03098 1.6651 3.24424 2.1677 1.21325.5025 2.51363.7612 3.82683.7612 2.6522 0 5.1957-1.0536 7.0711-2.9289 1.8753-1.8754 2.9289-4.4189 2.9289-7.0711 0-1.3132-.2587-2.61358-.7612-3.82683-.5026-1.21326-1.2391-2.31565-2.1677-3.24424-.9286-.92858-2.031-1.66518-3.2443-2.16773-1.2132-.50254-2.5136-.7612-3.8268-.7612z"></path></svg></div>
@@ -41,9 +42,7 @@
             <p id="error"></p>
 
             </div>
-    <!--<div class="error__close">
-
-    </div>-->
+            
 </div>
 
             
@@ -55,17 +54,8 @@
             <!--Inn here it will go from hard codeing too dynamic coding. By taking the task laying and saved in todos.
             in the script under const todos. remeber to change your comment to something more fitting for what you did do-->
             <ul id="todolist">
-                <!--comment is coming here-->
-                <!--BRUH#todoform:after is like button style after the normal #todoform:this comment is for me -->
-                <!-- De to listeelementene skal byttes ut med utskrift av data fra programkoden i <script> -->
-                <!--<li>
-                    <span class="tast-text">Les eksamensteksten</span>
-                    <span class="task-status task-status-done" >Done</span>
-                </li>
-                <li>
-                    <span class="tast-text">Løs oppgavene i InnfProg-eksamen</span>
-                    <span class="task-status task-status-todo">To do</span>
-                </li>-->
+                <!--I removed the orginal html code and used script to generate visible html on the site -->
+                
             </ul>
         </section>
         <footer><p>Adminpanel IPv1.0</p></footer>
@@ -114,7 +104,9 @@
             {text: "Lag funksjonalitet for å registrere nye oppgaver", status: "To do"},
             {text: "Lag funksjonalitet for å sette en eksisterende oppgave til utført ved å endre status", status: "To do"}
         ]
-        //comment is coming here
+        //comment is coming here(is it gonna be a big comment for all three functions and explain or just the first one? decide that soon!)
+        //I added 3 functions for making the to dos responsive and to have functonial buttons for both
+        // the save button and the to dos and done button
         //this is for the to do dos too show up
         function shuwMToDo() {
             let ulTag = document.getElementById("todolist")
@@ -152,6 +144,7 @@
             })
         }
         //comment is coming here
+        //This one is for showing the to dos while the site is loading inn
 //this is to show the to dos when the site is loading
         shuwMToDo()
 //this is for making new to dos
@@ -162,7 +155,8 @@
             todos.push({text:texytudos.value,status:"To do"})
             texytudos.value=""
             shuwMToDo()
-
+//this is for making the error box be gone if nothing is cliked, and is you write something "correct" in the input field it won`t show up
+//it is also added for when you refresh the site it won`t pop up and be gone if you cliked save on a empty input field
             document.getElementById("error").innerHTML=""
             document.getElementById("boxyerror").classList.toggle("itsallhidden")
 
@@ -179,6 +173,7 @@
         }
         //CLOCK
         //commment is coming here
+        //this one is for changeing the to do button to done when clicked back. And nothing happens when you click done
         //new function to change status of the to dos
         function notodos(index) {
             //console.log(index)
@@ -188,3 +183,7 @@
     </script>
 </body>
 </html>
+
+<!--Links to sites and code
+this is the link for the error pop up box and the image, also the code in it
+https://uiverse.io/andrew-demchenk0/bad-squid-34-->
