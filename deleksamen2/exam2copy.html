@@ -72,11 +72,12 @@
         ]
 
         let contactlist = ""
-
+//I used the mailto site as it was said in the exam task and used the, a tag to link the mail. To the names
+//of the people in the contacts.
         contacts.map((contact, index) => {
             contactlist += `<article>
                 <p><strong>${contact.lastname}, ${contact.firstname}</strong><br />
-                    Kontor: ${contact.office} | E-post: ${contact.mail}</p>
+                    Kontor: ${contact.office} | <a href="mailto:${contact.mail}"> E-post: ${contact.mail}</a></p>
             </article>`
         })
 
@@ -184,6 +185,6 @@
 </body>
 </html>
 
-<!--Links to sites and code
+<!--Links to sites and code used in the site:
 this is the link for the error pop up box and the image, also the code in it
 https://uiverse.io/andrew-demchenk0/bad-squid-34-->
