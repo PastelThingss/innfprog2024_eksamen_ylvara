@@ -114,7 +114,7 @@
             ulTag.innerHTML=""
             todos.map((e,index)=>{
                 let liTag = document.createElement("li")
-                
+                //YOUR ERROR BAR IS BROKEN. POP UPS FOR THE FIRST SAVED TO DO YOU MAKE!! FIX IT GURRRLL!!
                 let spanTag = document.createElement("span")
                 let spanTagBT = document.createElement("span")
 
@@ -159,13 +159,13 @@
 //this is for making the error box be gone if nothing is cliked, and is you write something "correct" in the input field it won`t show up
 //it is also added for when you refresh the site it won`t pop up and be gone if you cliked save on a empty input field
             document.getElementById("error").innerHTML=""
-            document.getElementById("boxyerror").classList.toggle("itsallhidden")
+            document.getElementById("boxyerror").classList.add("itsallhidden")
 
 
-
+//I added a classlist.remove for when I want it to show, and the other for when it shows.
            }else{
             document.getElementById("error").innerHTML="no task you scrub"
-            document.getElementById("boxyerror").classList.toggle("itsallhidden")
+            document.getElementById("boxyerror").classList.remove("itsallhidden")
 
             
            }
@@ -188,3 +188,4 @@
 <!--Links to sites and code used in the site:
 this is the link for the error pop up box and the image, also the code in it
 https://uiverse.io/andrew-demchenk0/bad-squid-34-->
+https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_link_mailto The link for the mailto site.
