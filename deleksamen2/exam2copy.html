@@ -28,6 +28,8 @@
                     <!-- Skal genereres fra datakilde i <script>. Oppføringen under er for å vise HTML-strukturen -->
                 </div>
             </section>
+            <!--I  was planning on useing the id=calNovBal to make the entries in the "books" calculateing.
+            That was a bad explanition, but yeah make it so it does what he wanted from them. Make em math geniuses:3 -->
             <p>Balanse november: Kr. <span id="balance">-</span></p>
             <p>Egenkapital: Kr. <span id="equity">-</span></p>
         </section>
@@ -84,6 +86,7 @@
         document.getElementById("contactlist").innerHTML = contactlist
         
         //BOOKS
+        //Here is where the money info are
         const books = [
             {text: "Printerblekk", date: "02.11.24", amount: -750},
             {text: "Printerpapir", date: "02.11.24", amount: -439},
@@ -92,11 +95,34 @@
             {text: "Kontorrekvisita", date: "10.11.24", amount: -644},
             {text: "Nettbutikksalg, uke 45", date: "13.11.24", amount: 2988}
         ]
-
+//Here is the info on how much money you have on your bank account
+//REMEMBER TO COMMENT ABOUT THE CODE YOU MAKE AND THE LINKS YOU USED TO FIX AND MAKE THINGS WORK!!
         let equity = 23782; //Penger på konto ved inngangen til november
         document.getElementById("incomingequity").innerHTML = equity
+        //And here is the start balance for doing the calculation of income in Novemeber
         let balance = 0;    //Startbalanse for utregning av utgifter og inntekter i november
 
+        //Here I will add a function(BETTER COMMENT REMEMBER!!)here for the calculating 
+        //part of the monthly balance of November
+        function calNovBal() {
+            //REMEMBER COMMENT ABOUT THE SHIT YOU PUT IN THE FUNCTION!! 
+            //OR ELSE NO TREAT FOR YOURSELF>:c
+            books.forEach((transaction) => {
+//comments!!
+                const month = transaction.date.split('.')[1]; //comments!!
+
+                //comments!!
+                if (month=== '11') {
+                    //comments!!
+                    balance += transaction.amount;
+                }
+            });
+
+            //comments!!
+            document.getElementById("calNovBal").innerHTML = balance;
+        }
+
+        calNovBal();
 
         //TODOS
         const todos = [
@@ -114,6 +140,7 @@
             ulTag.innerHTML=""
             todos.map((e,index)=>{
                 let liTag = document.createElement("li")
+                //YOU MIGHT HAVE FIXED IT GO CHECK GO GO!!
                 //YOUR ERROR BAR IS BROKEN. POP UPS FOR THE FIRST SAVED TO DO YOU MAKE!! FIX IT GURRRLL!!
                 let spanTag = document.createElement("span")
                 let spanTagBT = document.createElement("span")
