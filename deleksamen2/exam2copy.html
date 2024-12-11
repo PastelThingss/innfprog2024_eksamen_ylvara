@@ -107,9 +107,11 @@
         function calNovBal() {
             //REMEMBER COMMENT ABOUT THE SHIT YOU PUT IN THE FUNCTION!! 
             //OR ELSE NO TREAT FOR YOURSELF>:c
-            books.forEach((transaction) => {
+            books.map((transaction) => {
 //comments!!
                 const month = transaction.date.split('.')[1]; //comments!!
+
+                console.log(transaction)
 
                 //comments!!
                 if (month=== '11') {
@@ -118,8 +120,8 @@
                 }
             });
 
-            //comments!!
-            document.getElementById("calNovBal").innerHTML = balance;
+            //comments!! delete this when you don`t have use for it anymore
+            //document.getElementById("calNovBal").innerHTML = equity;
         }
 
         calNovBal();
@@ -215,4 +217,4 @@
 <!--Links to sites and code used in the site:
 this is the link for the error pop up box and the image, also the code in it
 https://uiverse.io/andrew-demchenk0/bad-squid-34-->
-https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_link_mailto The link for the mailto site.
+<!--https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_link_mailto The link for the mailto site.-->
